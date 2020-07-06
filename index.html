@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My first Vue app</title>
+  <script src="https://unpkg.com/vue"></script>
+  <link href="styles.css" rel="stylesheet" />
+</head>
+<body>
+  <div id="app">
+    {{ greet('Vue') }}  <br>
+    {{introduce()}}
+    <a v-bind:href="google">
+        <h1>Link for Google</h1>
+    </a>
+    <div v-html="tagToPaste">
+
+    </div>
+    <div>
+    {{numberToChange}}
+    </div>
+    <button v-on:click="numberToChange++">+</button>
+    <button v-on:click="numberToChange--">-</button>
+    <button @dblclick="defaultValue">defaultValue</button>
+    <button v-on:click="add(10)">+10</button>
+    <button @click="substract(10)">-10</button>
+    <p>v-on: === @</p>
+    <p>mousemove</p>
+    <p>dblclick</p>
+    <p>there are also event modifiers @dblclick.stop.prevent.self and so on</p>
+    <input type="text" v-model="text" default=""/>
+    <span>{{text}}</span>
+    <p>Computed properties are like React.PureComponent(), but they can't be called with params, methods are being called every time we renew smth on page</p>
+    <p>To make dynamic classes in VUE JS you can use v-bind:class="{nameOfClassToBeDynamic: true or false (can be variable), nextClass: true or false...}"</p>
+    <span @click="classActive = !classActive" v-bind:class="{classActive: classActive, classDisabled: !classActive}">TOGGLE BUTTON</span>
+  </div>
+  <script src="index.js"></script>
+</body>
+</html>
